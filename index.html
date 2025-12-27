@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بوابة الخدمات الحكومية - الإمارات</title>
+
+    <!-- Fonts: Almarai for professional Arabic look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Heroicons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Almarai", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                50: "#f2f9f9",
+                100: "#e0f2f2",
+                200: "#c2e4e4",
+                300: "#96cece",
+                400: "#64b0b0",
+                500: "#439292",
+                600: "#327575",
+                700: "#2a6060", // Primary Dark
+                800: "#254e4e",
+                900: "#113030", // Deep Navy/Green
+              },
+              gold: {
+                400: "#d4af37",
+                500: "#c5a028",
+                600: "#a3841c",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        
+        .hero-pattern {
+            background-color: #113030;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a4040' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans antialiased">
+    <div id="app" class="flex flex-col min-h-screen">
+      <!-- Navbar -->
+      <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <!-- Logo Area -->
+            <div class="flex items-center gap-3">
+              <div
+                class="w-12 h-12 bg-brand-900 rounded-lg flex items-center justify-center text-gold-400"
+              >
+                <!-- Simple Emblem SVG -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                  />
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xl font-bold text-brand-900 leading-tight"
+                  >الخدمات الحكومية</span
+                >
+                <span class="text-xs text-gray-500">بوابة الخدمات الذكية</span>
+              </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+              <a href="#home" class="nav-link text-brand-700 font-bold border-b-2 border-gold-400 transition-all duration-300">الرئيسية</a>
+              <a href="#services" class="nav-link text-gray-600 hover:text-brand-700 font-medium border-b-2 border-transparent hover:border-gold-400/50 transition-all duration-300">الخدمات</a>
+              <a href="#about" class="nav-link text-gray-600 hover:text-brand-700 font-medium border-b-2 border-transparent hover:border-gold-400/50 transition-all duration-300">عن الشركة</a>
+              <a href="#contact" class="nav-link text-gray-600 hover:text-brand-700 font-medium border-b-2 border-transparent hover:border-gold-400/50 transition-all duration-300">اتصل بنا</a>
+            </nav>
+
+            <!-- CTA & Search -->
+            <div class="flex items-center gap-4">
+              <button class="text-gray-500 hover:text-brand-700">
+                <i data-lucide="search" class="w-6 h-6"></i>
+              </button>
+              <a
+                href="#"
+                class="hidden sm:inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-brand-700 hover:bg-brand-800 transition shadow-sm"
+              >
+                دخول
+              </a>
+              <!-- Mobile menu button -->
+              <button
+                @click="mobileMenuOpen = !mobileMenuOpen"
+                class="md:hidden text-gray-500 hover:text-gray-700"
+              >
+                <i data-lucide="menu" class="w-6 h-6"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+          v-if="mobileMenuOpen"
+          class="md:hidden bg-white border-t border-gray-100 py-2"
+        >
+          <a href="#home" @click="mobileMenuOpen = false" class="block px-4 py-3 text-brand-700 bg-brand-50 font-bold border-r-4 border-gold-400">الرئيسية</a>
+          <a href="#services" @click="mobileMenuOpen = false" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium">الخدمات</a>
+          <a href="#about" @click="mobileMenuOpen = false" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium">عن الشركة</a>
+          <a href="#contact" @click="mobileMenuOpen = false" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium">اتصل بنا</a>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section
+        id="home"
+        class="relative hero-pattern text-white py-24 lg:py-32 overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-brand-900/95 to-brand-800/90"
+        ></div>
+        <div class="relative container mx-auto px-4 text-center z-10">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+          >
+            سهّلنا عليك <span class="text-gold-400">إجراءاتك</span> <br />
+            الحكومية
+          </h1>
+          <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+            منصة موحدة لجميع خدماتك وتخليص معاملاتك في الإمارات بكل سرعة
+            وموثوقية وأمان.
+          </p>
+
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="#services"
+              class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-lg text-brand-900 bg-white hover:bg-gray-50 transition shadow-lg"
+            >
+              استعرض الخدمات
+            </a>
+            <a
+              href="#how-it-works"
+              class="inline-flex items-center justify-center px-8 py-4 border border-white text-lg font-bold rounded-lg text-white hover:bg-white/10 transition"
+            >
+              كيف نعمل؟
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 reveal">
+            <h2 class="text-3xl font-bold text-brand-900 mb-4">
+              خدماتنا المتميزة
+            </h2>
+            <div class="h-1 w-20 bg-gold-400 mx-auto rounded"></div>
+            <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+              نقدم لك مجموعة شاملة من الخدمات لتسهيل حياتك وأعمالك في مكان واحد
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a v-for="(service, index) in services" :key="service.id" 
+                 :href="'service.html?id=' + service.id"
+                 :class="['reveal', index % 4 === 0 ? '' : (index % 4 === 1 ? 'delay-100' : (index % 4 === 2 ? 'delay-200' : 'delay-300'))]"
+                 class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:border-gold-400/30 cursor-pointer flex flex-col items-center text-center relative overflow-hidden block">
+                
+                <!-- Hover Effect BG -->
+                <div class="absolute top-0 right-0 w-2 h-full bg-gold-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+
+                <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                    <i :data-lucide="service.icon" class="w-8 h-8"></i>
+                </div>
+                
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-700 transition">{{ service.title }}</h3>
+                <p class="text-sm text-gray-500 mb-4 line-clamp-2">{{ service.description }}</p>
+                
+                <span class="mt-auto text-brand-600 font-bold text-sm inline-flex items-center group-hover:text-gold-500">
+                    عرض التفاصيل <i data-lucide="arrow-left" class="w-4 h-4 mr-1"></i>
+                </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics / Trust -->
+      <section class="py-16 bg-brand-900 text-white">
+        <div class="container mx-auto px-4">
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-x-reverse divide-white/10"
+          >
+            <div v-for="(stat, i) in stats" :key="stat.label" class="p-4 reveal" :class="'delay-'+(i*100)">
+              <div class="text-4xl font-bold text-gold-400 mb-2">
+                {{ stat.number }}
+              </div>
+              <div class="text-gray-300 text-sm">{{ stat.label }}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2 reveal">
+              <h2 class="text-3xl font-bold text-brand-900 mb-6">
+                لماذا تختار خدماتنا؟
+              </h2>
+              <div class="space-y-6">
+                <div
+                  v-for="(feature, index) in features"
+                  :key="index"
+                  class="flex items-start gap-4"
+                >
+                  <div
+                    class="flex-shrink-0 w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center text-brand-600 mt-1"
+                  >
+                    <i :data-lucide="feature.icon" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-bold text-gray-900">
+                      {{ feature.title }}
+                    </h4>
+                    <p class="text-gray-600 text-sm mt-1">{{ feature.desc }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/2 relative reveal delay-200">
+              <div
+                class="absolute -inset-4 bg-gold-400/20 rounded-2xl transform rotate-3"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1575024357670-2b5164f470c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Customer Service"
+                class="relative rounded-2xl shadow-xl w-full h-auto object-cover grayscale0 hover:grayscale-0 transition duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section id="how-it-works" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-3xl font-bold text-brand-900 mb-12 reveal">
+            كيف تعمل المنصة؟
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <!-- Connecting Line (Desktop) -->
+            <div
+              class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -z-10 transform -translate-y-1/2"
+            ></div>
+
+            <div
+              v-for="(step, i) in steps"
+              :key="i"
+              class="relative bg-gray-50 p-4 reveal" :class="'delay-'+(i*100)"
+            >
+              <div
+                class="w-16 h-16 bg-white border-2 border-brand-500 text-brand-600 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 shadow-md z-10 relative"
+              >
+                {{ i + 1 }}
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                {{ step.title }}
+              </h3>
+              <p class="text-gray-500 text-sm">{{ step.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-brand-900 mb-4">تواصل معنا</h2>
+                    <div class="h-1 w-20 bg-gold-400 mx-auto rounded"></div>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">نحن هنا للإجابة على استفساراتك ومساعدتك في جميع معاملاتك</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div class="bg-brand-900 rounded-xl p-8 text-white relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-20 -mt-20"></div>
+                        <div class="relative z-10 space-y-8">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-6 text-gold-400">بيانات التواصل</h3>
+                                <p class="text-gray-300 leading-relaxed">تفضل بزيارتنا أو الاتصال بنا في أي وقت. فريقنا جاهز لخدمتك على مدار الساعة.</p>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-gold-400 flex-shrink-0">
+                                        <i data-lucide="phone" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-lg mb-1">اتصل بنا</div>
+                                        <div class="text-gray-300" dir="ltr">+971 50 123 4567</div>
+                                        <div class="text-gray-300" dir="ltr">800 - SERVICES</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-gold-400 flex-shrink-0">
+                                        <i data-lucide="mail" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-lg mb-1">البريد الإلكتروني</div>
+                                        <div class="text-gray-300 font-sans">info@services.ae</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-gold-400 flex-shrink-0">
+                                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-lg mb-1">موقعنا</div>
+                                        <div class="text-gray-300">الإمارات العربية المتحدة، دبي<br>الخليج التجاري، برج السعادة، مكتب 101</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Social Links -->
+                            <div class="flex gap-4 pt-6">
+                                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-500 hover:text-brand-900 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-500 hover:text-brand-900 transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-500 hover:text-brand-900 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                        <form @submit.prevent>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الاسم</label>
+                                    <input type="text" class="w-full rounded-lg border-gray-300 border px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition" placeholder="الاسم الكامل">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">رقم الهاتف</label>
+                                    <input type="tel" class="w-full rounded-lg border-gray-300 border px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition" placeholder="مثال: 0501234567">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">الموضوع</label>
+                                    <select class="w-full rounded-lg border-gray-300 border px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition bg-white">
+                                    <option>استفسار عام</option>
+                                    <option>طلب خدمة</option>
+                                    <option>شكوى أو اقتراح</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">الرسالة</label>
+                                <textarea rows="4" class="w-full rounded-lg border-gray-300 border px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition" placeholder="اكتب رسالتك هنا..."></textarea>
+                            </div>
+                            <button class="w-full bg-brand-600 text-white font-bold py-4 rounded-lg hover:bg-brand-700 transition shadow-lg transform hover:-translate-y-1">
+                                إرسال الرسالة
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      <!-- Footer -->
+      <footer
+        class="bg-brand-900 text-white pt-16 pb-8 border-t-4 border-gold-500"
+      >
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1 md:col-span-1">
+              <div class="flex items-center gap-2 mb-6">
+                <div
+                  class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gold-400"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xl font-bold">الخدمات الحكومية</span>
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                شريكك الموثوق لتخليص جميع المعاملات الحكومية في دولة الإمارات
+                العربية المتحدة. دقة، سرعة، وأمان.
+              </p>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-gold-400">روابط سريعة</h4>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li>
+                  <a href="#" class="hover:text-white transition">الرئيسية</a>
+                </li>
+                <li>
+                  <a href="#services" class="hover:text-white transition"
+                    >الخدمات</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition">تتبع الطلب</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition"
+                    >الشروط والأحكام</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-gold-400">تواصل معنا</h4>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="flex items-center gap-3">
+                  <i data-lucide="phone" class="w-4 h-4"></i> 800-SERVICES
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="mail" class="w-4 h-4"></i> info@services.ae
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i> دبي، الخليج
+                  التجاري
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-gold-400">
+                النشرة البريدية
+              </h4>
+              <p class="text-gray-400 text-sm mb-4">اشترك ليصلك كل جديد</p>
+              <form class="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="البريد الإلكتروني"
+                  class="bg-white/10 border border-white/20 text-white rounded px-3 py-2 text-sm w-full focus:outline-none focus:border-gold-400"
+                />
+                <button
+                  class="bg-gold-500 hover:bg-gold-600 text-brand-900 font-bold px-4 py-2 rounded text-sm transition"
+                >
+                  اشتراك
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="border-t border-white/10 pt-8 text-center text-gray-500 text-sm"
+          >
+            © 2024 جميع الحقوق محفوظة لشركة الخدمات الحكومية.
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const { createApp, ref, onMounted } = Vue;
+      const { createIcons, icons } = lucide;
+
+      createApp({
+        setup() {
+          const mobileMenuOpen = ref(false);
+
+          const services = ref([
+            {
+              id: "visa",
+              title: "خدمات التأشيرات",
+              icon: "file-text",
+              description:
+                "إصدار وتجديد وإلغاء جميع أنواع التأشيرات (سياحة، عمل، إقامة) بكل سهولة.",
+            },
+            {
+              id: "residency",
+              title: "الإقامة والهوية",
+              icon: "user-check",
+              description:
+                "تثبيت وتجديد الإقامة وإصدار بطاقة الهوية الإماراتية لجميع أفراد الأسرة والعمالة.",
+            },
+            {
+              id: "license",
+              title: "الرخص التجارية",
+              icon: "briefcase",
+              description:
+                "تأسيس الشركات، تجديد الرخص التجارية، ومتابعة كافة الإجراءات القانونية.",
+            },
+            {
+              id: "fines",
+              title: "دفع المخالفات",
+              icon: "alert-octagon",
+              description:
+                "الاستعلام عن المخالفات المرورية ودفعها وتخليص معاملات المرور.",
+            },
+            {
+              id: "insurance",
+              title: "تأمين المركبات",
+              icon: "shield-check",
+              description:
+                "عروض تأمين مميزة للمركبات (شامل وضد الغير) مع أفضل شركات التأمين.",
+            },
+            {
+              id: "bills",
+              title: "دفع الفواتير",
+              icon: "credit-card",
+              description:
+                "دفع فواتير الخدمات (كهرباء، مياه، اتصالات) في مكان واحد.",
+            },
+            {
+              id: "inquiry",
+              title: "الاستعلامات",
+              icon: "search",
+              description:
+                "خدمات الاستعلام عن المعاملات والقضايا والمنع من السفر.",
+            },
+            {
+              id: "other",
+              title: "خدمات أخرى",
+              icon: "layers",
+              description:
+                "طيف واسع من الخدمات العامة وتصديق المعاملات الحكومية.",
+            },
+          ]);
+
+          const stats = ref([
+            { number: "+15k", label: "عميل سعيد" },
+            { number: "+50k", label: "معاملة منجزة" },
+            { number: "99%", label: "نسبة الرضا" },
+            { number: "24/7", label: "دعم فني" },
+          ]);
+
+          const features = ref([
+            {
+              title: "سرعة في الإنجاز",
+              icon: "zap",
+              desc: "نقدر وقتك الثمين، لذا نضمن إنجاز معاملاتك في أسرع وقت ممكن وفق المعايير الحكومية.",
+            },
+            {
+              title: "موثوقية وأمان",
+              icon: "lock",
+              desc: "نتعامل مع بياناتك وأوراقك بأعلى درجات السرية والأمان والموثوقية.",
+            },
+            {
+              title: "أسعار تنافسية",
+              icon: "badge-percent",
+              desc: "نقدم خدماتنا ورسوم التخليص بأسعار شفافة ومناسبة للجميع دون رسوم خفية.",
+            },
+          ]);
+
+          const steps = ref([
+            {
+              title: "اختر الخدمة",
+              desc: "تصفح قائمة خدماتنا واختر الخدمة التي تحتاجها.",
+            },
+            {
+              title: "ارفع المستندات",
+              desc: "قم برفع الصور والأوراق المطلوبة عبر المنصة بسهولة.",
+            },
+            {
+              title: "استلم معاملتك",
+              desc: "نقوم بتخليص المعاملة وإرسالها لك إلكترونياً أو توصيلها.",
+            },
+          ]);
+
+          onMounted(() => {
+            lucide.createIcons();
+            
+            // Scroll Reveal Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+            }, 100);
+
+            // Scroll Spy
+            window.addEventListener('scroll', () => {
+                const sections = ['home', 'services', 'about', 'contact'];
+                let current = '';
+                
+                sections.forEach(section => {
+                    const element = document.getElementById(section);
+                    if (element) {
+                        const rect = element.getBoundingClientRect();
+                        if (rect.top <= 150 && rect.bottom >= 150) {
+                            current = section;
+                        }
+                    }
+                });
+
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-brand-700', 'font-bold', 'border-gold-400', 'border-b-2');
+                    link.classList.add('text-gray-600', 'hover:text-brand-700', 'border-transparent', 'hover:border-gold-400/50');
+                    
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('text-brand-700', 'font-bold', 'border-gold-400', 'border-b-2');
+                        link.classList.remove('text-gray-600', 'border-transparent');
+                    }
+                });
+            });
+          });
+
+          return {
+            mobileMenuOpen,
+            services,
+            stats,
+            features,
+            steps,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
