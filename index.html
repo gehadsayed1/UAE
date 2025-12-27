@@ -132,9 +132,9 @@
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
               <a href="#home" class="nav-link text-brand-700 font-bold border-b-2 border-gold-400 transition-all duration-300">الرئيسية</a>
-              <a href="#services" class="nav-link text-gray-600 hover:text-brand-700 font-medium border-b-2 border-transparent hover:border-gold-400/50 transition-all duration-300">الخدمات</a>
-              <a href="#about" class="nav-link text-gray-600 hover:text-brand-700 font-medium border-b-2 border-transparent hover:border-gold-400/50 transition-all duration-300">عن الشركة</a>
-              <a href="#contact" class="nav-link text-gray-600 hover:text-brand-700 font-medium border-b-2 border-transparent hover:border-gold-400/50 transition-all duration-300">اتصل بنا</a>
+              <a href="#services" class="nav-link text-gray-600 hover:text-brand-700 font-medium border-b-2 border-transparent hover:border-gold-400/50 transition-all duration-300">خدماتنا</a>
+              <a href="#about" class="nav-link text-gray-600 hover:text-brand-700 font-medium border-b-2 border-transparent hover:border-gold-400/50 transition-all duration-300">من نحن</a>
+              <a href="#contact" class="nav-link text-gray-600 hover:text-brand-700 font-medium border-b-2 border-transparent hover:border-gold-400/50 transition-all duration-300">تواصل ويانا</a>
             </nav>
 
             <!-- CTA & Search -->
@@ -165,9 +165,9 @@
           class="md:hidden bg-white border-t border-gray-100 py-2"
         >
           <a href="#home" @click="mobileMenuOpen = false" class="block px-4 py-3 text-brand-700 bg-brand-50 font-bold border-r-4 border-gold-400">الرئيسية</a>
-          <a href="#services" @click="mobileMenuOpen = false" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium">الخدمات</a>
-          <a href="#about" @click="mobileMenuOpen = false" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium">عن الشركة</a>
-          <a href="#contact" @click="mobileMenuOpen = false" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium">اتصل بنا</a>
+          <a href="#services" @click="mobileMenuOpen = false" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium">خدماتنا</a>
+          <a href="#about" @click="mobileMenuOpen = false" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium">من نحن</a>
+          <a href="#contact" @click="mobileMenuOpen = false" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium">تواصل ويانا</a>
         </div>
       </header>
 
@@ -183,12 +183,11 @@
           <h1
             class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
-            سهّلنا عليك <span class="text-gold-400">إجراءاتك</span> <br />
-            الحكومية
+            معاملاتك الحكومية.. <span class="text-gold-400">سهالات</span> <br />
+            وفالك طيب
           </h1>
           <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
-            منصة موحدة لجميع خدماتك وتخليص معاملاتك في الإمارات بكل سرعة
-            وموثوقية وأمان.
+            منصة وحدة حق كل اللي تباه، نخلص أمورك في الدولة بسرعة وأمان وانت مرتاح.
           </p>
 
           <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -196,13 +195,13 @@
               href="#services"
               class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-lg text-brand-900 bg-white hover:bg-gray-50 transition shadow-lg"
             >
-              استعرض الخدمات
+              شوف خدماتنا
             </a>
             <a
               href="#how-it-works"
               class="inline-flex items-center justify-center px-8 py-4 border border-white text-lg font-bold rounded-lg text-white hover:bg-white/10 transition"
             >
-              كيف نعمل؟
+              شلون نخدمك؟
             </a>
           </div>
         </div>
@@ -213,11 +212,11 @@
         <div class="container mx-auto px-4">
           <div class="text-center mb-16 reveal">
             <h2 class="text-3xl font-bold text-brand-900 mb-4">
-              خدماتنا المتميزة
+              خدماتنا
             </h2>
             <div class="h-1 w-20 bg-gold-400 mx-auto rounded"></div>
             <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-              نقدم لك مجموعة شاملة من الخدمات لتسهيل حياتك وأعمالك في مكان واحد
+              وفرنا لك كل الخدمات اللي تباها في مكان واحد، عشان تخلص أمورك وأنت مرتاح ومطمن.
             </p>
           </div>
 
@@ -238,7 +237,7 @@
                 <p class="text-sm text-gray-500 mb-4 line-clamp-2">{{ service.description }}</p>
                 
                 <span class="mt-auto text-brand-600 font-bold text-sm inline-flex items-center group-hover:text-gold-500">
-                    عرض التفاصيل <i data-lucide="arrow-left" class="w-4 h-4 mr-1"></i>
+                    التفاصيل <i data-lucide="arrow-left" class="w-4 h-4 mr-1"></i>
                 </span>
             </a>
           </div>
@@ -267,7 +266,7 @@
           <div class="flex flex-col lg:flex-row items-center gap-12">
             <div class="lg:w-1/2 reveal">
               <h2 class="text-3xl font-bold text-brand-900 mb-6">
-                لماذا تختار خدماتنا؟
+                ليش تختارنا؟
               </h2>
               <div class="space-y-6">
                 <div
@@ -307,7 +306,7 @@
       <section id="how-it-works" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 text-center">
           <h2 class="text-3xl font-bold text-brand-900 mb-12 reveal">
-            كيف تعمل المنصة؟
+            شلون الترتيب؟
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             <!-- Connecting Line (Desktop) -->
@@ -338,9 +337,9 @@
         <section id="contact" class="py-20 bg-white border-t border-gray-100">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="text-3xl font-bold text-brand-900 mb-4">تواصل معنا</h2>
+                    <h2 class="text-3xl font-bold text-brand-900 mb-4">تواصل ويانا</h2>
                     <div class="h-1 w-20 bg-gold-400 mx-auto rounded"></div>
-                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">نحن هنا للإجابة على استفساراتك ومساعدتك في جميع معاملاتك</p>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">فالك طيب، نحن موجودين عشان نرد على استفساراتك ونساعدك</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -349,8 +348,8 @@
                         <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-20 -mt-20"></div>
                         <div class="relative z-10 space-y-8">
                             <div>
-                                <h3 class="text-2xl font-bold mb-6 text-gold-400">بيانات التواصل</h3>
-                                <p class="text-gray-300 leading-relaxed">تفضل بزيارتنا أو الاتصال بنا في أي وقت. فريقنا جاهز لخدمتك على مدار الساعة.</p>
+                                <h3 class="text-2xl font-bold mb-6 text-gold-400">معلومات التواصل</h3>
+                                <p class="text-gray-300 leading-relaxed">حياك عندنا أو اتصل فينا أي وقت. فريقنا جاهز لخدمتك على مدار الساعة.</p>
                             </div>
                             
                             <div class="space-y-6">
@@ -359,7 +358,7 @@
                                         <i data-lucide="phone" class="w-6 h-6"></i>
                                     </div>
                                     <div>
-                                        <div class="font-bold text-lg mb-1">اتصل بنا</div>
+                                        <div class="font-bold text-lg mb-1">اتصل فينا</div>
                                         <div class="text-gray-300" dir="ltr">+971 50 123 4567</div>
                                         <div class="text-gray-300" dir="ltr">800 - SERVICES</div>
                                     </div>
@@ -380,7 +379,7 @@
                                         <i data-lucide="map-pin" class="w-6 h-6"></i>
                                     </div>
                                     <div>
-                                        <div class="font-bold text-lg mb-1">موقعنا</div>
+                                        <div class="font-bold text-lg mb-1">مكاننا</div>
                                         <div class="text-gray-300">الإمارات العربية المتحدة، دبي<br>الخليج التجاري، برج السعادة، مكتب 101</div>
                                     </div>
                                 </div>
@@ -400,11 +399,11 @@
                         <form @submit.prevent>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
-                                    <label class="block text-sm font-bold text-gray-700 mb-2">الاسم</label>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">اسمك الكريم</label>
                                     <input type="text" class="w-full rounded-lg border-gray-300 border px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition" placeholder="الاسم الكامل">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-bold text-gray-700 mb-2">رقم الهاتف</label>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">رقم الموبايل</label>
                                     <input type="tel" class="w-full rounded-lg border-gray-300 border px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition" placeholder="مثال: 0501234567">
                                 </div>
                             </div>
@@ -421,7 +420,7 @@
                                 <textarea rows="4" class="w-full rounded-lg border-gray-300 border px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition" placeholder="اكتب رسالتك هنا..."></textarea>
                             </div>
                             <button class="w-full bg-brand-600 text-white font-bold py-4 rounded-lg hover:bg-brand-700 transition shadow-lg transform hover:-translate-y-1">
-                                إرسال الرسالة
+                                طرش الرسالة
                             </button>
                         </form>
                     </div>
@@ -458,8 +457,7 @@
                 <span class="text-xl font-bold">الخدمات الحكومية</span>
               </div>
               <p class="text-gray-400 text-sm leading-relaxed">
-                شريكك الموثوق لتخليص جميع المعاملات الحكومية في دولة الإمارات
-                العربية المتحدة. دقة، سرعة، وأمان.
+                شريكك اللي تعتمد عليه لتخليص معاملاتك في الدولة. دقة وسرعة وأمان.
               </p>
             </div>
             <div>
@@ -470,7 +468,7 @@
                 </li>
                 <li>
                   <a href="#services" class="hover:text-white transition"
-                    >الخدمات</a
+                    >خدماتنا</a
                   >
                 </li>
                 <li>
@@ -484,7 +482,7 @@
               </ul>
             </div>
             <div>
-              <h4 class="text-lg font-bold mb-6 text-gold-400">تواصل معنا</h4>
+              <h4 class="text-lg font-bold mb-6 text-gold-400">تواصل ويانا</h4>
               <ul class="space-y-3 text-gray-300 text-sm">
                 <li class="flex items-center gap-3">
                   <i data-lucide="phone" class="w-4 h-4"></i> 800-SERVICES
@@ -537,59 +535,59 @@
           const services = ref([
             {
               id: "visa",
-              title: "خدمات التأشيرات",
+              title: "أمور التأشيرات",
               icon: "file-text",
               description:
-                "إصدار وتجديد وإلغاء جميع أنواع التأشيرات (سياحة، عمل، إقامة) بكل سهولة.",
+                "نخلص لك كل أنواع التأشيرات، سياحة، زيارة، أو عمل.. وفالك طيب.",
             },
             {
               id: "residency",
               title: "الإقامة والهوية",
               icon: "user-check",
               description:
-                "تثبيت وتجديد الإقامة وإصدار بطاقة الهوية الإماراتية لجميع أفراد الأسرة والعمالة.",
+                "تجديد وإصدار الهوية والإقامة لك ولأهلك والمكفولين، وأنت مرتاح.",
             },
             {
               id: "license",
               title: "الرخص التجارية",
               icon: "briefcase",
               description:
-                "تأسيس الشركات، تجديد الرخص التجارية، ومتابعة كافة الإجراءات القانونية.",
+                "ناوي تفتح بزنس؟ نضبط لك الرخصة والتجديد وكل الأمور القانونية.",
             },
             {
               id: "fines",
-              title: "دفع المخالفات",
+              title: "المخالفات والمرور",
               icon: "alert-octagon",
               description:
-                "الاستعلام عن المخالفات المرورية ودفعها وتخليص معاملات المرور.",
+                "نشوف لك المخالفات وندفعها ونخلص معاملات موترك.",
             },
             {
               id: "insurance",
-              title: "تأمين المركبات",
+              title: "تأمين المواتر",
               icon: "shield-check",
               description:
-                "عروض تأمين مميزة للمركبات (شامل وضد الغير) مع أفضل شركات التأمين.",
+                "ندور لك أحسن سعر لتأمين موترك، شامل ولا ضد الغير.",
             },
             {
               id: "bills",
               title: "دفع الفواتير",
               icon: "credit-card",
               description:
-                "دفع فواتير الخدمات (كهرباء، مياه، اتصالات) في مكان واحد.",
+                "فواتير الكهرباء، الماي، والاتصالات.. ندفعها عنك بدقة.",
             },
             {
               id: "inquiry",
               title: "الاستعلامات",
               icon: "search",
               description:
-                "خدمات الاستعلام عن المعاملات والقضايا والمنع من السفر.",
+                "نستفسر لك عن أي معاملة أو قضية أو منع سفر، ونعطيك العلم الأكيد.",
             },
             {
               id: "other",
-              title: "خدمات أخرى",
+              title: "خدمات ثانية",
               icon: "layers",
               description:
-                "طيف واسع من الخدمات العامة وتصديق المعاملات الحكومية.",
+                "أي خدمة حكومية تخطر في بالك، تصديق أوراق وغيرها، نحن لها.",
             },
           ]);
 
@@ -602,34 +600,34 @@
 
           const features = ref([
             {
-              title: "سرعة في الإنجاز",
+              title: "إنجاز سريع",
               icon: "zap",
-              desc: "نقدر وقتك الثمين، لذا نضمن إنجاز معاملاتك في أسرع وقت ممكن وفق المعايير الحكومية.",
+              desc: "نعرف إن وقتك غالي، عشان جي نخلص معاملاتك بسرعة.",
             },
             {
-              title: "موثوقية وأمان",
+              title: "أمان وثقة",
               icon: "lock",
-              desc: "نتعامل مع بياناتك وأوراقك بأعلى درجات السرية والأمان والموثوقية.",
+              desc: "بياناتك في الحفظ والصون، ونتعامل وياها بكل سرية.",
             },
             {
-              title: "أسعار تنافسية",
+              title: "أسعارنا طيبة",
               icon: "badge-percent",
-              desc: "نقدم خدماتنا ورسوم التخليص بأسعار شفافة ومناسبة للجميع دون رسوم خفية.",
+              desc: "أسعارنا واضحة وما عندنا رسوم مخفية.",
             },
           ]);
 
           const steps = ref([
             {
-              title: "اختر الخدمة",
-              desc: "تصفح قائمة خدماتنا واختر الخدمة التي تحتاجها.",
+              title: "اختار الخدمة",
+              desc: "شوف الخدمات اللي عندنا واختار اللي تباه.",
             },
             {
-              title: "ارفع المستندات",
-              desc: "قم برفع الصور والأوراق المطلوبة عبر المنصة بسهولة.",
+              title: "حمل الأوراق",
+              desc: "صور أوراقك وحملها عندنا في الموقع بكل سهولة.",
             },
             {
               title: "استلم معاملتك",
-              desc: "نقوم بتخليص المعاملة وإرسالها لك إلكترونياً أو توصيلها.",
+              desc: "نحن بنخلص المعاملة وبنطرشها لك أو نوصلها لين عندك.",
             },
           ]);
 
