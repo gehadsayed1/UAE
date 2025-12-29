@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل الخدمة - بوابة الخدمات الحكومية</title>
-    
+    <title>تفاصيل الخدمة - آمر القرهود</title>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Vue 3 (Production) -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-    
+
     <!-- Heroicons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -29,21 +30,26 @@
                     },
                     colors: {
                         brand: {
-                            50: '#f2f9f9',
-                            100: '#e0f2f2',
-                            200: '#c2e4e4',
-                            300: '#96cece',
-                            400: '#64b0b0',
-                            500: '#439292',
-                            600: '#327575',
-                            700: '#2a6060', 
-                            800: '#254e4e',
-                            900: '#113030', 
+                            50: '#f0f7ff',
+                            100: '#e0efff',
+                            200: '#b8ddff',
+                            300: '#7ac2ff',
+                            400: '#339eff',
+                            500: '#0a7eff',
+                            600: '#0062e6',
+                            700: '#004db3',
+                            800: '#004293', // Primary Dark Blue (UAE Government)
+                            900: '#002d5c', // Deep Government Blue
                         },
                         gold: {
-                            400: '#d4af37',
-                            500: '#c5a028',
-                            600: '#a3841c',
+                            400: '#C9A961', // UAE Gold
+                            500: '#B8944F',
+                            600: '#A67F3D',
+                        },
+                        uae: {
+                            red: '#FF0000',
+                            green: '#00FF00',
+                            black: '#000000',
                         }
                     }
                 }
@@ -51,38 +57,59 @@
         }
     </script>
     <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
     <div id="app" class="flex flex-col min-h-screen">
-        
+
         <!-- Navbar -->
         <header class="bg-white shadow-sm sticky top-0 z-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20">
                     <div class="flex items-center gap-3 cursor-pointer" @click="goHome">
                         <div class="w-12 h-12 bg-brand-900 rounded-lg flex items-center justify-center text-gold-400">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
                         </div>
                         <div class="flex flex-col">
                             <span class="text-xl font-bold text-brand-900 leading-tight">الخدمات الحكومية</span>
-                            <span class="text-xs text-gray-500">بوابة الخدمات الذكية</span>
+                            <span class="text-xs text-gray-500">لأنجاز المعاملات الحكومية</span>
                         </div>
                     </div>
 
                     <nav class="hidden md:flex items-center gap-8">
-                        <a href="index.html" class="text-gray-600 hover:text-brand-700 font-medium transition">الرئيسية</a>
-                        <a href="index.html#services" class="text-brand-700 font-bold border-b-2 border-gold-400 transition-all duration-300">خدماتنا</a>
-                        <a href="index.html#about" class="text-gray-600 hover:text-brand-700 font-medium transition">من نحن</a>
-                        <a href="index.html#contact" class="text-gray-600 hover:text-brand-700 font-medium transition">تواصل ويانا</a>
+                        <a href="index.html"
+                            class="text-gray-600 hover:text-brand-700 font-medium transition">الرئيسية</a>
+                        <a href="index.html#services"
+                            class="text-brand-700 font-bold border-b-2 border-gold-400 transition-all duration-300">خدماتنا</a>
+                        <a href="index.html#about" class="text-gray-600 hover:text-brand-700 font-medium transition">من
+                            نحن</a>
+                        <a href="index.html#contact"
+                            class="text-gray-600 hover:text-brand-700 font-medium transition">تواصل ويانا</a>
                     </nav>
 
                     <div class="flex items-center gap-4">
-                        <a href="index.html" class=" hidden sm:inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition">
+                        <a href="index.html"
+                            class=" hidden sm:inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition">
                             رد للرئيسية
                         </a>
                     </div>
@@ -93,7 +120,7 @@
         <!-- Main Content -->
         <main class="flex-grow py-12">
             <div class="container mx-auto px-4">
-                
+
                 <!-- Breadcrumb -->
                 <nav class="flex mb-8 text-sm text-gray-500">
                     <a href="index.html" class="hover:text-brand-600">الرئيسية</a>
@@ -104,14 +131,15 @@
                 </nav>
 
                 <div v-if="currentService" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    
+
                     <!-- Right Column: Details -->
                     <div class="lg:col-span-2 space-y-8">
-                        
+
                         <!-- Header Card -->
                         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
                             <div class="flex items-start gap-6">
-                                <div class="w-20 h-20 bg-brand-50 text-brand-700 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <div
+                                    class="w-20 h-20 bg-brand-50 text-brand-700 rounded-2xl flex items-center justify-center flex-shrink-0">
                                     <i :data-lucide="currentService.icon" class="w-10 h-10"></i>
                                 </div>
                                 <div>
@@ -128,8 +156,10 @@
                                 الأوراق المطلوبة
                             </h2>
                             <ul class="space-y-3">
-                                <li v-for="(req, idx) in currentService.requirements" :key="idx" class="flex items-center gap-3 text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">
-                                    <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                                <li v-for="(req, idx) in currentService.requirements" :key="idx"
+                                    class="flex items-center gap-3 text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0 text-xs font-bold">
                                         {{ idx + 1 }}
                                     </div>
                                     {{ req }}
@@ -137,8 +167,8 @@
                             </ul>
                         </div>
 
-                         <!-- FAQ / Process -->
-                         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+                        <!-- FAQ / Process -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
                             <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                                 <i data-lucide="info" class="w-5 h-5 text-gold-500"></i>
                                 ملاحظات
@@ -146,7 +176,8 @@
                             <p class="text-gray-600 mb-4">
                                 فريقنا بيخلص لك هالمعاملة، ونحن ننوب عنك في الدوائر الحكومية. نضمن لك الإنجاز.
                             </p>
-                            <div class="p-4 bg-yellow-50 text-yellow-800 rounded-lg text-sm border border-yellow-100 flex gap-3">
+                            <div
+                                class="p-4 bg-yellow-50 text-yellow-800 rounded-lg text-sm border border-yellow-100 flex gap-3">
                                 <i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0"></i>
                                 يرجى التأكد من صلاحية جواز السفر لمدة ستة أشهر على الأقل قبل التقديم.
                             </div>
@@ -156,16 +187,17 @@
 
                     <!-- Left Column: Sidebar & Form -->
                     <div class="lg:col-span-1 space-y-6">
-                        
+
                         <!-- Info Card -->
                         <div class="bg-brand-900 text-white rounded-xl p-6 shadow-lg relative overflow-hidden">
-                             <div class="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-10 -mt-10"></div>
-                             <div class="relative z-10">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-10 -mt-10"></div>
+                            <div class="relative z-10">
                                 <div class="mb-6">
                                     <div class="text-gray-400 text-xs mb-1">وقت الإنجاز المتوقع</div>
-                                    <div class="text-2xl font-bold text-gold-400">{{ currentService.processingTime }}</div>
+                                    <div class="text-2xl font-bold text-gold-400">{{ currentService.processingTime }}
+                                    </div>
                                 </div>
-                                </div>
+                            </div>
                         </div>
 
                         <!-- Application Form -->
@@ -175,37 +207,47 @@
                                 <div class="space-y-4">
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">اسمك الكريم</label>
-                                        <input type="text" v-model="form.name" required class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition" placeholder="الاسم الكامل">
+                                        <input type="text" v-model="form.name" required
+                                            class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition"
+                                            placeholder="الاسم الكامل">
                                     </div>
-                                    
+
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">رقم الموبايل</label>
-                                        <input type="tel" v-model="form.phone" required class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition" dir="ltr" placeholder="+971 50 000 0000">
+                                        <input type="tel" v-model="form.phone" required
+                                            class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition"
+                                            dir="ltr" placeholder="+971 50 000 0000">
                                     </div>
 
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">البريد الإلكتروني</label>
-                                        <input type="email" v-model="form.email" required class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">البريد
+                                            الإلكتروني</label>
+                                        <input type="email" v-model="form.email" required
+                                            class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition">
                                     </div>
 
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">ملاحظات ثانية</label>
-                                        <textarea v-model="form.notes" rows="3" class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition"></textarea>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">ملاحظات
+                                            ثانية</label>
+                                        <textarea v-model="form.notes" rows="3"
+                                            class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition"></textarea>
                                     </div>
-                                    
+
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">ارفاق ملفات</label>
-                                        <input type="file" multiple class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100">
+                                        <input type="file" multiple
+                                            class="w-full rounded-lg border-gray-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100">
                                     </div>
 
                                     <div class="pt-2">
-                                        <button type="submit" 
-                                           class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-all transform hover:scale-[1.02]">
-                                           <span v-if="!loading">ارسل الطلب</span>
-                                           <span v-else>لحظة...</span>
+                                        <button type="submit"
+                                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-all transform hover:scale-[1.02]">
+                                            <span v-if="!loading">ارسل الطلب</span>
+                                            <span v-else>لحظة...</span>
                                         </button>
                                     </div>
-                                    <p class="text-xs text-gray-400 text-center mt-3">بنتواصل وياك خلال 24 ساعة عشان نكمل الإجراءات.</p>
+                                    <p class="text-xs text-gray-400 text-center mt-3">بنتواصل وياك خلال 24 ساعة عشان
+                                        نكمل الإجراءات.</p>
                                 </div>
                             </form>
                         </div>
@@ -223,20 +265,24 @@
         <!-- Footer -->
         <footer class="bg-brand-900 text-white pt-12 pb-8 border-t-4 border-gold-500 mt-auto">
             <div class="container mx-auto px-4 text-center">
-                 <p class="text-gray-400 text-sm">© 2024 جميع الحقوق محفوظة لشركة الخدمات الحكومية.</p>
+                <p class="text-gray-400 text-sm">© 2024 جميع الحقوق محفوظة لآمر القرهود.</p>
             </div>
         </footer>
 
         <!-- Success Modal -->
         <div v-if="showModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" @click="showModal = false"></div>
-            <div class="bg-white rounded-2xl shadow-xl w-full max-w-md relative z-10 p-8 text-center transform transition-all scale-100">
-                <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" @click="showModal = false">
+            </div>
+            <div
+                class="bg-white rounded-2xl shadow-xl w-full max-w-md relative z-10 p-8 text-center transform transition-all scale-100">
+                <div
+                    class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <i data-lucide="check" class="w-10 h-10"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">فالك طيّب!</h3>
                 <p class="text-gray-600 mb-8">استلمنا طلبك وبنتواصل وياك قريب عشان نخلص إجراءاتك.</p>
-                <button @click="showModal = false" class="w-full bg-brand-600 text-white font-bold py-3 rounded-lg hover:bg-brand-700 transition">
+                <button @click="showModal = false"
+                    class="w-full bg-brand-600 text-white font-bold py-3 rounded-lg hover:bg-brand-700 transition">
                     تم
                 </button>
             </div>
@@ -371,7 +417,7 @@
                 };
 
                 const goHome = () => {
-                   window.location.href = 'index.html';
+                    window.location.href = 'index.html';
                 };
 
                 const submitForm = () => {
@@ -407,4 +453,5 @@
         }).mount('#app');
     </script>
 </body>
+
 </html>
